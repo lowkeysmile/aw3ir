@@ -1,4 +1,4 @@
-/* Фон для body */
+/* body background */
 body {
     background: linear-gradient(to right, #e0eafc, #cfdef3);
     font-family: Arial, sans-serif;
@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 
-/* Стили для header */
+/* header style */
 header {
     text-align: center;
     padding: 20px;
@@ -27,7 +27,7 @@ header p {
     font-size: 1em;
 }
 
-/* Стили для секций */
+/* styles for section */
 section {
     padding: 20px;
     margin: 0 auto;
@@ -44,7 +44,7 @@ section h2 {
     padding-bottom: 5px;
 }
 
-/* Стили для таблицы */
+/* style for tabs */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -66,7 +66,7 @@ table tr:hover {
     background-color: #ddd;
 }
 
-/* Стили для ссылок */
+/* style for links */
 a {
     color: #ff6600;
     text-decoration: none;
@@ -76,7 +76,7 @@ a:hover {
     color: #ff4500;
 }
 
-/* Увеличение изображений */
+/* +img */
 img {
     transition: transform 0.2s;
 }
@@ -100,7 +100,7 @@ img:hover {
 }
 
 
-/* Media query для экрана с максимальной шириной 600px */
+/* Media query 600px */
 @media only screen and (max-width: 600px) {
     body {
         background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
