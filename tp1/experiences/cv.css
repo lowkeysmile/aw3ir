@@ -1,0 +1,116 @@
+/* Фон для body */
+body {
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стили для header */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #444;
+}
+
+header p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+/* Стили для секций */
+section {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #444;
+    border-bottom: 2px solid #777;
+    padding-bottom: 5px;
+}
+
+/* Стили для таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+/* Стили для ссылок */
+a {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff4500;
+}
+
+/* Увеличение изображений */
+img {
+    transition: transform 0.2s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1em;
+    color: #ff6600;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #ff4500;
+}
+
+
+/* Media query для экрана с максимальной шириной 600px */
+@media only screen and (max-width: 600px) {
+    body {
+        background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+}
