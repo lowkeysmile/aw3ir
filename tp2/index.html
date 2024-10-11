@@ -5,12 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>TP2</title>
-  <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <!-- Place favicon.ico in the root directory -->
-
   <style>
     body {
       background-color: #e9ebee;
@@ -20,21 +15,114 @@
       margin: 0 auto;
       max-width: 800px;
     }
-  </style>
 
-  <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-  <!--<link rel="stylesheet" href="style.css">-->
-  <!--<script src="js/main.js"></script>-->
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      padding: 8px;
+      width: calc(100% - 16px);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input:invalid {
+      border-color: red;
+    }
+
+    input:valid {
+      border-color: green;
+    }
+
+    .valid-icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      color: green;
+      visibility: hidden;
+    }
+
+    input:valid + .valid-icon {
+      visibility: visible;
+    }
+
+    .submit-btn {
+      background-color: #555;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #333;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <nav>
-    <a href="..">🏠 Index</a> / TP2
+    <a href="..">🏠 Index</a>
   </nav>
-  <h1>tp2</h1>
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <img src="../galilee.png" alt="Logo Galilee" />
+  <h1>TP #2</h1>
+
+  <form action="action.html" method="get">
+    
+    <div class="input-wrapper">
+      <label for="name">Nom:</label>
+      <input type="text" id="name" name="name" minlength="2" maxlength="20" required />
+      <span class="valid-icon">✅</span>
+    </div>
+
+    
+    <div class="input-wrapper">
+      <label for="firstname">Prénom:</label>
+      <input type="text" id="firstname" name="firstname" minlength="2" maxlength="20" required />
+      <span class="valid-icon">✅</span>
+    </div>
+
+    
+    <div class="input-wrapper">
+      <label for="birthday">Date de naissance:</label>
+      <input type="date" id="birthday" name="birthday" required />
+      <span class="valid-icon">✅</span>
+    </div>
+
+    
+    <div class="input-wrapper">
+      <label for="address">Adresse:</label>
+      <input type="text" id="address" name="address" minlength="5" maxlength="50" required />
+      <span class="valid-icon">✅</span>
+    </div>
+
+   
+    <div class="input-wrapper">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" minlength="5" maxlength="30" required />
+      <span class="valid-icon">✅</span>
+    </div>
+
+  
+    <input type="submit" class="btn-primary" value="Envoyer"  />
+  </form>
 </body>
 
 </html>
