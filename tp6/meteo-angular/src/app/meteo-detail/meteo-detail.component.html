@@ -1,0 +1,86 @@
+<!-- Affichage de la météo actuelle pour la ville sélectionnée -->
+<div *ngIf="meteo && meteo.cod === 200">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/">🏠</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Météo pour {{ meteo.name }}
+      </li>
+    </ol>
+  </nav>
+
+  <div class="card" style="width: 300px; margin: 0 auto">
+    <div class="card-header">
+      {{ meteo.name }} / {{ meteo.dt * 1000 | date: 'EEEE d MMMM HH:mm' }}
+    </div>
+
+    <!-- Ajout d'une image de la carte utilisant Google Maps Static API -->
+    <a
+      href="http://maps.google.com/maps?q={{ latlon }}&ll={{ latlon }}&z=5"
+      target="_blank"
+    >
+      <img
+        class="card-img-top"
+        src="https://maps.googleapis.com/maps/api/staticmap?markers={{ latlon }}&zoom=5&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg
+        alt="Image de la carte"
+      />
+    </a>
+
+    <div class="card-body">
+      <p class="card-text"><i class="wi wi-barometer"></i> Pression: {{ meteo.main?.pressure }} hPa</p>
+      <h5 class="card-title" *ngIf="meteo.weather && meteo.weather.length > 0">
+        <i [ngClass]="'wi wi-owm-day-' + meteo.weather[0].id"></i>
+        {{ meteo.main?.temp }}°C
+      </h5>
+      <p class="card-text" *ngIf="meteo.weather && meteo.weather.length > 0">
+        <i class="wi wi-cloud"></i> {{ meteo.weather[0]?.description }}
+      </p>
+      <p class="card-text">
+        <i class="wi wi-humidity"></i> Humidité: {{ meteo.main?.humidity }}%
+      </p>
+      <p class="card-text">
+        <i class="wi wi-strong-wind"></i> Vent: {{ meteo.wind?.speed }} km/h
+      </p>
+    </div>
+
+    <!-- Ajout d'informations sur le lever et le coucher du soleil -->
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <i class="wi wi-sunrise"></i> Lever du soleil: {{ meteo.sys?.sunrise * 1000 | date: 'H:mm' }}
+      </li>
+      <li class="list-group-item">
+        <i class="wi wi-sunset"></i> Coucher du soleil: {{ meteo.sys?.sunset * 1000 | date: 'H:mm' }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Message d'erreur en cas d'échec de récupération des données -->
+<div class="container mt-4">
+    <h3 class="mt-4">Prévisions sur 5 jours</h3>
+    <div class="row justify-content-center">
+      <div *ngFor="let forecast of dailyForecast" class="col-md-2 col-sm-4">
+        <div class="card text-center mb-3 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ forecast.dt_txt | date:'EEEE d MMMM' }}</h5>
+            <p class="card-text">
+              <i class="wi wi-owm-day-{{ forecast.weather[0].id }} weather-icon" style="font-size: 1em;"></i>
+              <br>
+              <span [ngClass]="getTemperatureClass(forecast.main.temp)" style="font-size: 1.5em;">{{ forecast.main.temp | number:'1.0-0' }} <i class="wi wi-celsius"></i></span>
+              <br>
+              <small>{{ forecast.weather[0].description }}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+$1
+  {{ meteo.message }} (erreur {{ meteo.cod }})
+</div>
+
+
+
