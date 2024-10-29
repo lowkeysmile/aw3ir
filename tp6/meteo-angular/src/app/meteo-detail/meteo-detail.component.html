@@ -27,7 +27,7 @@
       <p class="card-text"><i class="wi wi-barometer"></i> Pression: {{ meteo.main?.pressure }} hPa</p>
       <h5 class="card-title" *ngIf="meteo.weather && meteo.weather.length > 0">
         <i [ngClass]="'wi wi-owm-day-' + meteo.weather[0].id"></i>
-        {{ meteo.main?.temp }}°C
+        {{ meteo.main?.temp | number:'1.0-1'}}°C
       </h5>
       <p class="card-text" *ngIf="meteo.weather && meteo.weather.length > 0">
         <i class="wi wi-cloud"></i> {{ meteo.weather[0]?.description }}
