@@ -17,15 +17,10 @@
     </div>
 
     <!-- Ajout d'une image de la carte utilisant Google Maps Static API -->
-    <a
-      href="http://maps.google.com/maps?q={{ latlon }}&ll={{ latlon }}&z=5"
-      target="_blank"
-    >
-      <img
-        class="card-img-top"
-        src="https://maps.googleapis.com/maps/api/staticmap?markers={{ latlon }}&zoom=5&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg
-        alt="Image de la carte"
-      />
+    <a href="http://maps.google.com/maps?q={{ latlon }}&ll={{ latlon }}&z=5" target="_blank">
+      <img class="card-img-top"
+        src="https://maps.googleapis.com/maps/api/staticmap?markers={{ latlon }}&zoom=5&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg"
+        alt="Image de la carte" />
     </a>
 
     <div class="card-body">
@@ -59,28 +54,22 @@
 
 <!-- Message d'erreur en cas d'échec de récupération des données -->
 <div class="container mt-4">
-    <h3 class="mt-4">Prévisions sur 5 jours</h3>
-    <div class="row justify-content-center">
-      <div *ngFor="let forecast of dailyForecast" class="col-md-2 col-sm-4">
-        <div class="card text-center mb-3 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">{{ forecast.dt_txt | date:'EEEE d MMMM' }}</h5>
-            <p class="card-text">
-              <i class="wi wi-owm-day-{{ forecast.weather[0].id }} weather-icon" style="font-size: 1em;"></i>
-              <br>
-              <span [ngClass]="getTemperatureClass(forecast.main.temp)" style="font-size: 1.5em;">{{ forecast.main.temp | number:'1.0-0' }} <i class="wi wi-celsius"></i></span>
-              <br>
-              <small>{{ forecast.weather[0].description }}</small>
-            </p>
-          </div>
+  <h3 class="mt-4">Prévisions sur 5 jours</h3>
+  <div class="row justify-content-center">
+    <div *ngFor="let forecast of dailyForecast" class="col-md-2 col-sm-4">
+      <div class="card text-center mb-3 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ forecast.dt_txt | date:'EEEE d MMMM' }}</h5>
+          <p class="card-text">
+            <i class="wi wi-owm-day-{{ forecast.weather[0].id }} weather-icon" style="font-size: 1em;"></i>
+            <br>
+            <span [ngClass]="getTemperatureClass(forecast.main.temp)" style="font-size: 1.5em;">{{ forecast.main.temp |
+              number:'1.0-0' }} <i class="wi wi-celsius"></i></span>
+            <br>
+            <small>{{ forecast.weather[0].description }}</small>
+          </p>
         </div>
       </div>
     </div>
   </div>
-
-$1
-  {{ meteo.message }} (erreur {{ meteo.cod }})
 </div>
-
-
-

@@ -9,6 +9,8 @@ import { MeteoService } from "../services/meteo.service";
 })
 export class MeteoDetailComponent implements OnInit {
   meteo: any;
+  forecast: any;
+  dailyForecast: any[] = [];
   latlon: string = "";
 
   constructor(
@@ -18,13 +20,12 @@ export class MeteoDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getMeteo();
+    this.getForecast();
   }
 
   getMeteo(): void {
-    
     const name = this.route.snapshot.paramMap.get("name");
-
-    console.log("getMeteo для", name);
+    console.log("getMeteo pour", name);
     if (name) {
       this.meteoService
         .getMeteo(name)
@@ -34,5 +35,29 @@ export class MeteoDetailComponent implements OnInit {
         })
         .catch((fail) => (this.meteo = fail));
     }
+  }
+
+  getForecast(): void {
+    const name = this.route.snapshot.paramMap.get("name");
+    if (name) {
+      this.meteoService
+        .getForecast(name)
+        .then((response) => {
+          // Фильтруем прогноз, чтобы получить данные на полдень каждого дня
+          this.dailyForecast = response.list.filter((item: any) =>
+            item.dt_txt.includes("12:00:00")
+          );
+        })
+        .catch((error) => {
+          console.error("Ошибка при получении прогноза:", error);
+        });
+    }
+  }
+
+  getTemperatureClass(temp: number): string {
+    if (temp < 0) return "cold";
+    if (temp < 15) return "cool";
+    if (temp < 25) return "warm";
+    return "hot";
   }
 }

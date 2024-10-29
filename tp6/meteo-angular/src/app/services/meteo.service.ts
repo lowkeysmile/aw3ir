@@ -12,13 +12,8 @@ export class MeteoService {
         name +
         "&units=metric&lang=fr&appid=0ada432b59deb9716c357092c5f79be6"
     )
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (json) {
-        // test du code retour
-        // 200 = OK
-        // 404 = city not found
+      .then((response) => response.json())
+      .then((json) => {
         if (json.cod == 200) {
           return Promise.resolve(json);
         } else {
@@ -29,6 +24,20 @@ export class MeteoService {
           return Promise.reject(
             "Météo introuvable pour " + name + " (" + json.message + ")"
           );
+        }
+      });
+  }
+
+  getForecast(name: string): Promise<any> {
+    return fetch(
+      `https://api.openweathermap.org/data/2.5/forecast/?q=${name}&units=metric&lang=fr&appid=0ada432b59deb9716c357092c5f79be6`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.cod == "200") {
+          return Promise.resolve(json);
+        } else {
+          return Promise.reject(json.message);
         }
       });
   }
