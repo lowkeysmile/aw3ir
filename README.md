@@ -1,6 +1,3 @@
-Lien pour rejoindre le forum SLACK : https://join.slack.com/t/master3ir/shared_invite/zt-2sbf8uzgg-j1gffR_HTpnRB4WfNXJIzw
-
-
 
 <p align="center">
   <a href="https://galilee.univ-paris13.fr/master/master-ingenierie-innovation-images-reseaux-m3ir/">
@@ -9,17 +6,20 @@ Lien pour rejoindre le forum SLACK : https://join.slack.com/t/master3ir/shared_i
   <br/>
  Master² 3IR
 
-# Template Github pour vos TP WEB
+# TP1: Simple CV Design
 
+# TP2: Interactive Form Validation
+Build a simple HTML form with JavaScript-powered validation and data handling. 
 
-  Documentation pour configurer votre compte Github : [/configurer_github/readme.md](/configurer_github/readme.md)
-  
-  Page d'index des pages web https://[VOTRE_PSEUDO_GITHUB].github.io/aw3ir/
-  
-  Exemple : https://bilelz.github.io/aw3ir/
+# TP3: Bootstrap-Powered Form
+Form for capturing user details (name, email, etc.).
 
+# TP4: Geolocation-Enhanced Form
+Extend the TP3 form with HTML5 geolocation and modular JavaScript. Validate inputs and manipulate JSON data.
 
+# TP5: Vue.js Weather App
+Develop a weather app using Vue.js and the OpenWeatherMap API. Allow users to add cities, display real-time weather, and integrate Google Maps.
 
-# Enoncé des TP
+# TP6: Angular Weather Dashboard
+Weather app with Angular and OpenWeatherMap. Implement a responsive UI with a city search form, weather details, and a 5-day forecast. Live Demo: https://lowkeysmile.github.io/aw3ir/tp6/meteo-angular/build/browser/.
 
-Les énoncés sont dans un autre dépot git : https://github.com/bilelz/aw3ir.readme
